@@ -70,7 +70,6 @@ pub fn game_score(opp: Move, my: Move) -> isize {
 }
 
 pub fn get_move(opp: Move, target: GameResult) -> Move {
-    // (0 if you lost, 3 if the round was a draw, and 6 if you won).
     match opp {
         Rock => match target {
             Win => Paper,
@@ -103,8 +102,6 @@ pub fn day2() -> Option<()> {
         opp_move = Move::from_char(line.chars().nth(0)?)?;
         target_outcome = GameResult::from_char(line.chars().nth(2)?)?;
         my_move = get_move(opp_move.clone(), target_outcome);
-
-        // my_move = Move::from_char(line.chars().nth(2)?)?;
 
         tot_score += my_move.score() + game_score(opp_move, my_move);
     }
