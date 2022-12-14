@@ -18,14 +18,23 @@ pub fn day3() -> Option<()> {
     let contents = fs::read_to_string("inputs/day3").expect("Where file");
 
     let mut score = 0;
-    for line in contents.lines() {
-        let items: Vec<char> = line.chars().collect();
-        let m = items.len() / 2;
 
-        let first: HashSet<&char> = items[0..m].into_iter().collect();
-        let second: HashSet<&char> = items[m..].into_iter().collect();
+    let lines: Vec<&str> = contents.lines().collect();
 
-        let intersection = **first.intersection(&second).next()?;
+    for line in lines.chunks(3) {
+        let a = line[0];
+        let b = line[1];
+        let c = line[2];
+
+
+        let first: HashSet<char> = a.chars().collect();
+        let second: HashSet<char> = b.chars().collect();
+        let third: HashSet<char> = c.chars().collect();
+
+        let intersection_ab: HashSet<char> = first.intersection(&second).cloned()
+            .collect();
+        let intersection = *third.intersection(&intersection_ab).next()?;
+
         let char_score = char_score(intersection);
 
         score += char_score;
