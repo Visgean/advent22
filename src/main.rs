@@ -1,7 +1,7 @@
-use crate::day5::day5;
+use crate::day6::day6;
 
-mod day5;
+mod day6;
 
 fn main() {
-    println!("{}", day5().unwrap());
+    println!("{}", day6().unwrap());
 }
