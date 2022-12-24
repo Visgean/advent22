@@ -58,7 +58,6 @@ pub fn day9() -> Option<isize> {
                 let touching = (diff_x.abs() + diff_y.abs()) <= 1;
                 let diagonal = diff_x.abs() == 1 && diff_y.abs() == 1;
 
-
                 if !(touching || diagonal) {
                     if diff_x != 0 {
                         if rope[tail_index - 1].0 > rope[tail_index].0 {
