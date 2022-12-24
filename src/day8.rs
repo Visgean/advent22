@@ -4,15 +4,6 @@ use std::fs;
 const RADIX: u32 = 10;
 
 pub fn print_score(forrest: &Vec<Vec<usize>>) {
-    println!();
-
-
-    // for row in forrest {
-    //     for tree in row {
-    //         print!("{} ", tree)
-    //     }
-    //     println!()
-    // }
     let max = forrest.iter().map(|x| x.iter().max().unwrap()).max().unwrap();
     println!("{}", max)
 }
@@ -102,7 +93,7 @@ pub fn day8() -> Option<isize> {
             score[y][x] *= view_score;
         }
     }
-    
+
     print_score(&score);
     Some(0)
 }
